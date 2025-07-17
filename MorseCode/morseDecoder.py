@@ -16,6 +16,7 @@ if message == "":
 
 messageList = message.split("   ")
 res = ""
+
 for i in messageList:
     wordLetters = i.split(" ")
     for j in wordLetters:
