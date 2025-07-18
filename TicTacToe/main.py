@@ -68,16 +68,16 @@ def buildGame() -> list[list[int]]:
 
 
 test_cases = {
-    1: {"expected": 2, "p1": 0, "p2": 1},  # linha superior: 0,1 -> bloqueio em 2
-    2: {"expected": 4, "p1": 0, "p2": 5},  # sem ligação direta
-    3: {"expected": 5, "p1": 3, "p2": 4},  # linha do meio esquerda: 3,4 -> falta 5
-    4: {"expected": 4, "p1": 1, "p2": 7},  # mesma coluna do meio: 1,7 -> falta 4
-    5: {"expected": 8, "p1": 0, "p2": 4},  # diagonal principal: 0,4 -> falta 8
-    6: {"expected": 6, "p1": 2, "p2": 4},  # diagonal secundária: 2,4 -> falta 6
-    7: {"expected": 8, "p1": 2, "p2": 5},  # sem possibilidade de completar uma linha
-    8: {"expected": 5, "p1": 4, "p2": 3},  # linha do meio: 3,4 -> falta 5
-    9: {"expected": 7, "p1": 1, "p2": 4},  # coluna do meio: 1,4 -> falta 7
-    10: {"expected": 4, "p1": 2, "p2": 6}, # sem alinhamento
+    1: {"expected": 2, "p1": 0, "p2": 1}, 
+    2: {"expected": 4, "p1": 0, "p2": 5},  
+    3: {"expected": 5, "p1": 3, "p2": 4},  
+    4: {"expected": 4, "p1": 1, "p2": 7},  
+    5: {"expected": 8, "p1": 0, "p2": 4}, 
+    6: {"expected": 6, "p1": 2, "p2": 4},  
+    7: {"expected": 8, "p1": 2, "p2": 5},  
+    8: {"expected": 5, "p1": 4, "p2": 3},  
+    9: {"expected": 7, "p1": 1, "p2": 4}, 
+    10: {"expected": 4, "p1": 2, "p2": 6}, 
 }
 
 for i, case in test_cases.items():
