@@ -5,7 +5,5 @@ In this Python challenge, write a function that’ll accept two numbers. These n
 These parameters are two marks on the tic-tac-toe board. The function should return the number of the spot that can block these two spots from winning the game.
 
  0 | 1 | 2
------------
  3 | 4 | 5
------------
  6 | 7 | 8
