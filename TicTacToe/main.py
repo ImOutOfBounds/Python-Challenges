@@ -12,10 +12,11 @@ def ticTacToeBlock(pos1, pos2) -> int:
         return getMissingRow(pos1cord[0], gameMatrix, pos1, pos2)
     elif pos1cord[1] == pos2cord[1]:
         return getMissingCol(pos1cord[1], gameMatrix, pos1, pos2)
-    elif pos1cord[1] != pos2cord[1] :
-        pass # pegar numero que falta na horizontal
+    elif pos1cord[1] != pos2cord[1]:
+        return getMissingVertical(pos1cord[1], pos2cord[1], gameMatrix, pos1, pos2)
 
-    return 0
+    return -1
+
 
 
 def getMissingRow(rowNum, gameMatrix, num1, num2) -> int:
@@ -23,6 +24,8 @@ def getMissingRow(rowNum, gameMatrix, num1, num2) -> int:
         if num1 != i and num2 != i:
             return i
     return 0
+
+
 
 def getMissingCol(colNum, gameMatrix, num1, num2) -> int:
     possibleRes = []
@@ -35,6 +38,19 @@ def getMissingCol(colNum, gameMatrix, num1, num2) -> int:
         if num1 != i and num2 != i:
             return i
     return 0
+
+
+
+def getMissingVertical(colNum1, colNum2, gameMatrix, num1, num2) -> int:
+    if num1 != 4 and num2 != 4:
+        return 4
+    elif num1 == 4:
+        return abs(8-num2)
+    elif num2 == 4:
+        return abs(8-num1)
+    return 0
+
+
 
 def buildGame() -> list[list[int]]: 
     gameMatrix = []
@@ -50,4 +66,20 @@ def buildGame() -> list[list[int]]:
     return gameMatrix
     
 
-print(ticTacToeBlock(1, 7))
+
+test_cases = {
+    1: {"expected": 2, "p1": 0, "p2": 1},  # linha superior: 0,1 -> bloqueio em 2
+    2: {"expected": 4, "p1": 0, "p2": 5},  # sem ligação direta
+    3: {"expected": 5, "p1": 3, "p2": 4},  # linha do meio esquerda: 3,4 -> falta 5
+    4: {"expected": 4, "p1": 1, "p2": 7},  # mesma coluna do meio: 1,7 -> falta 4
+    5: {"expected": 8, "p1": 0, "p2": 4},  # diagonal principal: 0,4 -> falta 8
+    6: {"expected": 6, "p1": 2, "p2": 4},  # diagonal secundária: 2,4 -> falta 6
+    7: {"expected": 8, "p1": 2, "p2": 5},  # sem possibilidade de completar uma linha
+    8: {"expected": 5, "p1": 4, "p2": 3},  # linha do meio: 3,4 -> falta 5
+    9: {"expected": 7, "p1": 1, "p2": 4},  # coluna do meio: 1,4 -> falta 7
+    10: {"expected": 4, "p1": 2, "p2": 6}, # sem alinhamento
+}
+
+for i, case in test_cases.items():
+    result = ticTacToeBlock(case["p1"], case["p2"])
+    print(f"Test {i}: Expected: {case['expected']} | Result: {result} | P1: {case['p1']} | P2: {case['p2']}")
