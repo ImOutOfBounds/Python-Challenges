@@ -13,7 +13,7 @@ def ticTacToeBlock(pos1, pos2) -> int:
     elif pos1cord[1] == pos2cord[1]:
         return getMissingCol(pos1cord[1], gameMatrix, pos1, pos2)
     elif pos1cord[1] != pos2cord[1]:
-        return getMissingVertical(pos1cord[1], pos2cord[1], gameMatrix, pos1, pos2)
+        return getMissingVertical(pos1, pos2)
 
     return -1
 
@@ -41,7 +41,7 @@ def getMissingCol(colNum, gameMatrix, num1, num2) -> int:
 
 
 
-def getMissingVertical(colNum1, colNum2, gameMatrix, num1, num2) -> int:
+def getMissingVertical(num1, num2) -> int:
     if num1 != 4 and num2 != 4:
         return 4
     elif num1 == 4:
